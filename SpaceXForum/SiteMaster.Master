@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#"  AutoEventWireup="true" CodeBehind="SiteMaster.master.cs" Inherits="SpaceXForum.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html >
+<link href="css/bootstrap.css" rel="stylesheet" />
+<head runat="server">
+    <title></title>
+    </head>
+<body style="background-image: url('https://wallpaperaccess.com/full/417994.jpg');">
+    <form id="form1" runat="server">
+        <table style="width:100%;">
+            <tr>
+                <td>
+                    <asp:Label ID="SiteLabel" runat="server" Font-Names="Arial Black" Font-Size="XX-Large" Text="SPACE-X FANS UNITED" Width="100%" CssClass="text-left" ForeColor="White"></asp:Label>
+                </td>
+                <td style="width: 25%">
+                    <asp:Label ID="isLoggedIn" runat="server" Text="Welcome [user]" Width="100%" CssClass="text-center" ForeColor="White"></asp:Label>
+                    <br />
+                    <asp:Button ID="AdminButton" runat="server" Text="Admin Page" Width="100%" OnClick="AdminButton_Click" CausesValidation="False" />
+                </td>
+            </tr>
+        </table>
+        <table style="width:100%;">
+            <tr>
+                <td style="width: 33%">
+                    <asp:Button ID="HomeButton" runat="server" BorderStyle="Ridge" CssClass="btn-dark" Text="Home" Width="100%" OnClick="HomeButton_Click" CausesValidation="False" />
+                </td>
+                <td>
+                    <asp:Button ID="CreatePostButton" runat="server" CssClass="btn-dark" Text="Create Post" Width="100%" OnClick="PostButton_Click" CausesValidation="False" />
+                </td>
+                <td style="width: 33%">
+                    <asp:Button ID="LoginUserButton" runat="server" CssClass="btn-dark" Text="Login" Width="100%" OnClick="LoginUserButton_Click" CausesValidation="False" />
+                </td>
+            </tr>
+        </table>
+        <br />
+                    <asp:ContentPlaceHolder ID="Content" runat="server">
+                    </asp:ContentPlaceHolder>
+                <br />
+        <br />
+                <asp:SqlDataSource ID="MasterUserTableSource" runat="server" ConnectionString="<%$ ConnectionStrings:SpaceXDatabaseConnectionString %>" SelectCommand="SELECT * FROM [User]"></asp:SqlDataSource>
+        <br />
+    </form>
+    
+</body>
+    
+</html>
+<footer class ="navbar fixed-bottom" id="footer" style="background-color: #FFFFFF">
+
+    Copyright SpaceX. This page is a fan page and is in no way associated with Tesla or SpaceX</footer>
